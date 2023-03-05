@@ -5,7 +5,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="Hello World, Hexo">
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex">
+    <meta name="description" content="git 结构
+
+workspace：工作区，就是你在电脑里能看到的目录。
+staging area：暂存区&amp;#x2F;缓存区，一般存放在  .git 目录下的 index 文件（.git&amp;#x2F;index）中，所以我们把暂存区有时也叫作">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -396,19 +399,97 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+                <h1 id="git-结构"><a href="#git-结构" class="headerlink" title="git 结构"></a>git 结构</h1><p><img src="C:\Users\XJM\AppData\Roaming\Typora\typora-user-images\image-20220908175752933.png" alt="image-20220908175752933"></p>
+<ul>
+<li>workspace：工作区，就是你在电脑里能看到的目录。</li>
+<li>staging area：暂存区&#x2F;缓存区，一般存放在  .git 目录下的 index 文件（.git&#x2F;index）中，所以我们把暂存区有时也叫作索引（index）。</li>
+<li>local repository：版本库或本地仓库，工作区有一个隐藏目录 .git，这个不算工作区，而是 Git 的版本库。</li>
+<li>remote repository：远程仓库</li>
+</ul>
+<h1 id="git-init"><a href="#git-init" class="headerlink" title="git init"></a>git init</h1><p>在目录中创建仓库</p>
+<h1 id="git-clone"><a href="#git-clone" class="headerlink" title="git clone"></a>git clone</h1><ul>
+<li>拷贝远程仓库中的项目</li>
+</ul>
+<p><code>git clone [url] </code></p>
+<p>其中<code>[url]</code>是要拷贝的项目地址，用http</p>
+<h1 id="git-add"><a href="#git-add" class="headerlink" title="git add"></a>git add</h1><ul>
+<li>添加一个或多个文件到暂存区：</li>
+</ul>
+<p><code>git add [file1] [file2] ...</code></p>
+<ul>
+<li>添加指定目录到暂存区：</li>
+</ul>
+<p><code>git add [dir]...</code></p>
+<ul>
+<li>添加所有文件：</li>
+</ul>
+<p><code>git add .</code></p>
+<p>注意add后的空格！</p>
+<h1 id="git-commit"><a href="#git-commit" class="headerlink" title="git commit"></a>git commit</h1><ul>
+<li>将暂存区内容添加到本地仓库中</li>
+</ul>
+<p><code>git commit -m [message]</code></p>
+<p>其中<code>[message]</code>是添加时的备注信息，用<code>&#39;xxx&#39;</code>表示</p>
+<ul>
+<li>提交指定文件</li>
+</ul>
+<p><code>git commit [file1] [file2] ... -m [message]</code></p>
+<ul>
+<li><strong>-a</strong> 参数设置修改文件后不需要执行 git add 命令，直接来提交</li>
+</ul>
+<p><code>git commit -a</code></p>
+<h1 id="git-status"><a href="#git-status" class="headerlink" title="git status"></a>git status</h1><p>用于查看在上次提交后是否对文件再次修改</p>
+<h1 id="git-remote"><a href="#git-remote" class="headerlink" title="git remote"></a>git remote</h1><p>用于在远程仓库的操作。</p>
+<ul>
+<li>显示所有远程仓库：</li>
+</ul>
+<p><code>git remote -v</code></p>
+<p>注意cd到项目目录</p>
+<ul>
+<li>显示某个远程仓库的信息：</li>
+</ul>
+<p><code>git remote show [remote]</code></p>
+<p>其中<code>[remote]</code>是git远程仓库地址</p>
+<ul>
+<li>添加远程版本库：</li>
+</ul>
+<p><code>git remote add [shortname] [url]</code></p>
+<p><code>[shortname] </code>为本地的版本库</p>
+<ul>
+<li>其他相关命令：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote rm name  # 删除远程仓库</span><br><span class="line">git remote rename old_name new_name  # 修改仓库名</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<h1 id="git-push"><a href="#git-push" class="headerlink" title="git push"></a>git push</h1><p><strong>git push</strong> 命令用于从将本地的分支版本上传到远程并合并。 </p>
+<ul>
+<li>命令格式如下：</li>
+</ul>
+<p><code>git push &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;</code></p>
+<ul>
+<li>如果本地分支名与远程分支名相同，则可以省略冒号：</li>
+</ul>
+<p><code>git push &lt;远程主机名&gt; &lt;本地分支名&gt;</code></p>
+<h1 id="git-fetch"><a href="#git-fetch" class="headerlink" title="git fetch"></a>git fetch</h1><p><strong>git fetch</strong> 命令用于从远程获取代码库。 </p>
+<p>该命令执行完后需要执行 git merge 远程分支到你所在的分支。</p>
+<p>从远端仓库提取数据并尝试合并到当前分支：</p>
+<p><code>git merge</code></p>
+<p>该命令就是在执行 git fetch 之后紧接着执行 git merge 远程分支到你所在的任意分支。</p>
+<p>假设你配置好了一个远程仓库，并且你想要提取更新的数据，你可以首先执行:</p>
+<p><code>git fetch [alias]</code></p>
+<p>以上命令告诉 Git 去获取它有你没有的数据，然后你可以执行：</p>
+<p><code>git merge [alias]/[branch]</code></p>
+<p>以上命令将服务器上的任何更新（假设有人这时候推送到服务器了）合并到你的当前分支。</p>
+<h1 id="git-pull"><a href="#git-pull" class="headerlink" title="git pull"></a>git pull</h1><p><strong>git pull</strong> 命令用于从远程获取代码并合并本地的版本。 </p>
+<p><strong>git pull</strong> 其实就是 git fetch 和 git merge FETCH_HEAD 的简写。</p>
+<p>命令格式如下：</p>
+<p><code>git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</code></p>
+<h1 id="push-流程"><a href="#push-流程" class="headerlink" title="push 流程"></a>push 流程</h1><ol>
+<li>创建仓库 <code>git init</code></li>
+<li><code>git clone [url]</code></li>
+<li><code>git add .</code></li>
+<li><code>git commit</code></li>
+<li><code>git push origin [branch]:[branch]</code></li>
+</ol>
 
                 
             </div>
@@ -549,17 +630,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2023/03/05/git/">
+                <a href="/2023/03/05/hello-world/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">Hello World</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -569,9 +651,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-03-05
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-05
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -580,6 +662,7 @@
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
