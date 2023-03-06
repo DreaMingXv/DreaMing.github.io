@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Tag: git | Hexo</title>
+  <title>Bisection_method | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/tags/git/index.html">
+  <meta name="description" content="二分法基本框架： 123456789101112131415161718int binary(vector&lt;int&gt; &amp;nums,int target)&amp;#123;	&#x2F;&#x2F;right可能-1    int left&#x3D;0,right &#x3D; nums.size()(-1);    &#x2F;&#x2F;循环条件可能有left&#x3D;right    while(left&lt;(&#x3D;)right)    &amp;#1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bisection_method">
+<meta property="og:url" content="http://example.com/2022/10/14/Bisection-method/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="二分法基本框架： 123456789101112131415161718int binary(vector&lt;int&gt; &amp;nums,int target)&amp;#123;	&#x2F;&#x2F;right可能-1    int left&#x3D;0,right &#x3D; nums.size()(-1);    &#x2F;&#x2F;循环条件可能有left&#x3D;right    while(left&lt;(&#x3D;)right)    &amp;#1">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-10-14T02:11:02.000Z">
+<meta property="article:modified_time" content="2023-03-06T02:12:16.337Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -150,60 +155,192 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Bisection-method" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/09/22/hello-world/" class="archive-article-date">
-  	<time datetime="2022-09-22T10:21:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-09-22</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/09/22/hello-world/">git 使用记录</a>
+    <h1 class="article-title" itemprop="name">
+      Bisection_method
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2022/10/14/Bisection-method/" class="archive-article-date">
+  	<time datetime="2022-10-14T02:11:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="二分法"><a href="#二分法" class="headerlink" title="二分法"></a>二分法</h1><p>基本框架：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">binary</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;nums,<span class="type">int</span> target)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//right可能-1</span></span><br><span class="line">    <span class="type">int</span> left=<span class="number">0</span>,right = nums.<span class="built_in">size</span>()(<span class="number">-1</span>);</span><br><span class="line">    <span class="comment">//循环条件可能有left=right</span></span><br><span class="line">    <span class="keyword">while</span>(left&lt;(=)right)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//防止大数</span></span><br><span class="line">        <span class="type">int</span> mid=left+(right-left)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(nums[mid]&gt;target)</span><br><span class="line">            right=mid<span class="number">-1</span>;<span class="comment">//可能-1</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(nums[mid]&lt;target)</span><br><span class="line">            left=mid+<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> mid;<span class="comment">//相等时返回结果</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>while循环的条件中left&lt;&#x3D;right和left&lt;right的确定由问题本身决定，如果查询元素一定存在搜索范围内，选择left&lt;right可以夹出唯一的位置；而left&lt;&#x3D;right能将搜索区间范围一步步缩小，一直到区间为空才会退出。</li>
+<li>二分初始区间应该覆盖到所有可能返回的结果。</li>
+</ul>
+<h2 id="区间"><a href="#区间" class="headerlink" title="区间"></a>区间</h2><p>分为左闭右闭[]和左闭右开[)；</p>
+<p>影响right的初值：</p>
+<ul>
+<li>左闭右闭时<code>int right = nums.size()-1;</code></li>
+<li>左闭右开时<code>int right = nums.size();</code></li>
+</ul>
+<p>影响循环条件：</p>
+<ul>
+<li>左闭右闭时<code>while(left&lt;=right)</code></li>
+<li>左闭右开时<code>while(left&lt;right)</code></li>
+</ul>
+<p>影响right的更新：</p>
+<ul>
+<li>左闭右闭时<code>right=mid-1;</code></li>
+<li>左闭右开时<code>right=mid;</code></li>
+</ul>
+<h2 id="判断条件"><a href="#判断条件" class="headerlink" title="判断条件"></a>判断条件</h2><p><code>if(nums[mid]&gt;target)</code>和<code>if(nums[mid]&lt;target)</code>中添加相等条件，会导致结果偏向不同，一个偏向左边界，一个向右边界；</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(left&lt;=right)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (nums[mid] &gt; target )</span><br><span class="line">    &#123;</span><br><span class="line">        right = mid - <span class="number">1</span>;</span><br><span class="line">        ans = mid;<span class="comment">//这样使得ans只记录右边改变时的值</span></span><br><span class="line">        <span class="comment">//否则当循环停止时，无法确定取left或right</span></span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">else</span> </span><br><span class="line">    left = mid + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/10/14/Bisection-method/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2022/09/22/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">git 使用记录</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -226,9 +363,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

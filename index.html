@@ -152,6 +152,105 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Bisection-method" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/10/14/Bisection-method/">Bisection_method</a>
+    </h1>
+  
+
+        
+        <a href="/2022/10/14/Bisection-method/" class="archive-article-date">
+  	<time datetime="2022-10-14T02:11:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="二分法"><a href="#二分法" class="headerlink" title="二分法"></a>二分法</h1><p>基本框架：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">binary</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;nums,<span class="type">int</span> target)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//right可能-1</span></span><br><span class="line">    <span class="type">int</span> left=<span class="number">0</span>,right = nums.<span class="built_in">size</span>()(<span class="number">-1</span>);</span><br><span class="line">    <span class="comment">//循环条件可能有left=right</span></span><br><span class="line">    <span class="keyword">while</span>(left&lt;(=)right)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//防止大数</span></span><br><span class="line">        <span class="type">int</span> mid=left+(right-left)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(nums[mid]&gt;target)</span><br><span class="line">            right=mid<span class="number">-1</span>;<span class="comment">//可能-1</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(nums[mid]&lt;target)</span><br><span class="line">            left=mid+<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> mid;<span class="comment">//相等时返回结果</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>while循环的条件中left&lt;&#x3D;right和left&lt;right的确定由问题本身决定，如果查询元素一定存在搜索范围内，选择left&lt;right可以夹出唯一的位置；而left&lt;&#x3D;right能将搜索区间范围一步步缩小，一直到区间为空才会退出。</li>
+<li>二分初始区间应该覆盖到所有可能返回的结果。</li>
+</ul>
+<h2 id="区间"><a href="#区间" class="headerlink" title="区间"></a>区间</h2><p>分为左闭右闭[]和左闭右开[)；</p>
+<p>影响right的初值：</p>
+<ul>
+<li>左闭右闭时<code>int right = nums.size()-1;</code></li>
+<li>左闭右开时<code>int right = nums.size();</code></li>
+</ul>
+<p>影响循环条件：</p>
+<ul>
+<li>左闭右闭时<code>while(left&lt;=right)</code></li>
+<li>左闭右开时<code>while(left&lt;right)</code></li>
+</ul>
+<p>影响right的更新：</p>
+<ul>
+<li>左闭右闭时<code>right=mid-1;</code></li>
+<li>左闭右开时<code>right=mid;</code></li>
+</ul>
+<h2 id="判断条件"><a href="#判断条件" class="headerlink" title="判断条件"></a>判断条件</h2><p><code>if(nums[mid]&gt;target)</code>和<code>if(nums[mid]&lt;target)</code>中添加相等条件，会导致结果偏向不同，一个偏向左边界，一个向右边界；</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(left&lt;=right)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (nums[mid] &gt; target )</span><br><span class="line">    &#123;</span><br><span class="line">        right = mid - <span class="number">1</span>;</span><br><span class="line">        ans = mid;<span class="comment">//这样使得ans只记录右边改变时的值</span></span><br><span class="line">        <span class="comment">//否则当循环停止时，无法确定取left或right</span></span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">else</span> </span><br><span class="line">    left = mid + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/10/14/Bisection-method/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -231,7 +330,7 @@
 <ul>
 <li>其他相关命令：</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote rm name  # 删除远程仓库</span><br><span class="line">git remote rename old_name new_name  # 修改仓库名</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote rm name  #删除远程仓库</span><br><span class="line">git remote rename old_name new_name  #修改仓库名</span><br></pre></td></tr></table></figure>
 
 <h1 id="git-push"><a href="#git-push" class="headerlink" title="git push"></a>git push</h1><p><strong>git push</strong> 命令用于从将本地的分支版本上传到远程并合并。 </p>
 <ul>
@@ -407,6 +506,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
