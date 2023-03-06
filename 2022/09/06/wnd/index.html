@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>滑动窗口 | blog_DreaMing</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="滑动窗口类似于一个队列，头进尾出，整体左移，每次进行比较等操作。">
+  <meta name="description" content="类似于一个队列，头进尾出，整体左移，每次进行比较等操作。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="滑动窗口">
 <meta property="og:url" content="http://example.com/2022/09/06/wnd/index.html">
 <meta property="og:site_name" content="blog_DreaMing">
-<meta property="og:description" content="滑动窗口类似于一个队列，头进尾出，整体左移，每次进行比较等操作。">
+<meta property="og:description" content="类似于一个队列，头进尾出，整体左移，每次进行比较等操作。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-09-06T02:33:14.000Z">
-<meta property="article:modified_time" content="2023-03-06T02:35:13.995Z">
+<meta property="article:modified_time" content="2023-03-06T02:51:24.524Z">
 <meta property="article:author" content="DreaMing Xv">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
@@ -175,10 +175,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="滑动窗口"><a href="#滑动窗口" class="headerlink" title="滑动窗口"></a>滑动窗口</h1><p>类似于一个队列，头进尾出，整体左移，每次进行比较等操作。</p>
+        <p>类似于一个队列，头进尾出，整体左移，每次进行比较等操作。</p>
 <span id="more"></span>
 
-<h2 id="找到字符串中所有字母异位词"><a href="#找到字符串中所有字母异位词" class="headerlink" title="找到字符串中所有字母异位词"></a>找到字符串中所有字母异位词</h2><p>通过数组存储窗口信息：</p>
+<h3 id="找到字符串中所有字母异位词"><a href="#找到字符串中所有字母异位词" class="headerlink" title="找到字符串中所有字母异位词"></a>找到字符串中所有字母异位词</h3><p>通过数组存储窗口信息：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">findAnagrams</span><span class="params">(string s, string p)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> sLen = s.<span class="built_in">size</span>(), pLen = p.<span class="built_in">size</span>();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (sLen &lt; pLen) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; ans;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">sCount</span><span class="params">(<span class="number">26</span>)</span></span>;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">pCount</span><span class="params">(<span class="number">26</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; pLen; ++i) &#123;</span><br><span class="line">            ++sCount[s[i] - <span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">            ++pCount[p[i] - <span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (sCount == pCount) &#123;</span><br><span class="line">            ans.<span class="built_in">emplace_back</span>(<span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; sLen - pLen; ++i) &#123;</span><br><span class="line">            --sCount[s[i] - <span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">            ++sCount[s[i + pLen] - <span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">			<span class="comment">//直接比较数组</span></span><br><span class="line">            <span class="keyword">if</span> (sCount == pCount) &#123;</span><br><span class="line">                ans.<span class="built_in">emplace_back</span>(i + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
@@ -425,11 +425,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">做题记录</a>
+                <a href="javascript:void(0)" class="js-tag color3">数据结构 算法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数据结构 算法</a>
+                <a href="javascript:void(0)" class="js-tag color5">做题记录</a>
               </li>
             
             <div class="clearfix"></div>
