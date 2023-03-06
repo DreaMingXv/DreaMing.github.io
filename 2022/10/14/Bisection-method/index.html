@@ -16,7 +16,7 @@
 <meta property="og:description" content="二分法基本框架： 123456789101112131415161718int binary(vector&lt;int&gt; &amp;nums,int target)&amp;#123;	&#x2F;&#x2F;right可能-1    int left&#x3D;0,right &#x3D; nums.size()(-1);    &#x2F;&#x2F;循环条件可能有left&#x3D;right    while(left&lt;(&#x3D;)right)    &amp;#1">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-10-14T02:11:02.000Z">
-<meta property="article:modified_time" content="2023-03-06T02:12:16.337Z">
+<meta property="article:modified_time" content="2023-03-06T02:23:05.054Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
@@ -182,6 +182,8 @@
 <li>while循环的条件中left&lt;&#x3D;right和left&lt;right的确定由问题本身决定，如果查询元素一定存在搜索范围内，选择left&lt;right可以夹出唯一的位置；而left&lt;&#x3D;right能将搜索区间范围一步步缩小，一直到区间为空才会退出。</li>
 <li>二分初始区间应该覆盖到所有可能返回的结果。</li>
 </ul>
+<span id="more"></span>
+
 <h2 id="区间"><a href="#区间" class="headerlink" title="区间"></a>区间</h2><p>分为左闭右闭[]和左闭右开[)；</p>
 <p>影响right的初值：</p>
 <ul>

@@ -179,26 +179,9 @@
 <li>while循环的条件中left&lt;&#x3D;right和left&lt;right的确定由问题本身决定，如果查询元素一定存在搜索范围内，选择left&lt;right可以夹出唯一的位置；而left&lt;&#x3D;right能将搜索区间范围一步步缩小，一直到区间为空才会退出。</li>
 <li>二分初始区间应该覆盖到所有可能返回的结果。</li>
 </ul>
-<h2 id="区间"><a href="#区间" class="headerlink" title="区间"></a>区间</h2><p>分为左闭右闭[]和左闭右开[)；</p>
-<p>影响right的初值：</p>
-<ul>
-<li>左闭右闭时<code>int right = nums.size()-1;</code></li>
-<li>左闭右开时<code>int right = nums.size();</code></li>
-</ul>
-<p>影响循环条件：</p>
-<ul>
-<li>左闭右闭时<code>while(left&lt;=right)</code></li>
-<li>左闭右开时<code>while(left&lt;right)</code></li>
-</ul>
-<p>影响right的更新：</p>
-<ul>
-<li>左闭右闭时<code>right=mid-1;</code></li>
-<li>左闭右开时<code>right=mid;</code></li>
-</ul>
-<h2 id="判断条件"><a href="#判断条件" class="headerlink" title="判断条件"></a>判断条件</h2><p><code>if(nums[mid]&gt;target)</code>和<code>if(nums[mid]&lt;target)</code>中添加相等条件，会导致结果偏向不同，一个偏向左边界，一个向右边界；</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(left&lt;=right)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (nums[mid] &gt; target )</span><br><span class="line">    &#123;</span><br><span class="line">        right = mid - <span class="number">1</span>;</span><br><span class="line">        ans = mid;<span class="comment">//这样使得ans只记录右边改变时的值</span></span><br><span class="line">        <span class="comment">//否则当循环停止时，无法确定取left或right</span></span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">else</span> </span><br><span class="line">    left = mid + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
+        
+          <a class="article-more-a" href="/2022/10/14/Bisection-method/#more">more >></a>
+        
       
 
       
@@ -278,91 +261,9 @@
 <li>local repository：版本库或本地仓库，工作区有一个隐藏目录 .git，这个不算工作区，而是 Git 的版本库。</li>
 <li>remote repository：远程仓库</li>
 </ul>
-<h1 id="git-init"><a href="#git-init" class="headerlink" title="git init"></a>git init</h1><p>在目录中创建仓库</p>
-<h1 id="git-clone"><a href="#git-clone" class="headerlink" title="git clone"></a>git clone</h1><ul>
-<li>拷贝远程仓库中的项目</li>
-</ul>
-<p><code>git clone [url] </code></p>
-<p>其中<code>[url]</code>是要拷贝的项目地址，用http</p>
-<h1 id="git-add"><a href="#git-add" class="headerlink" title="git add"></a>git add</h1><ul>
-<li>添加一个或多个文件到暂存区：</li>
-</ul>
-<p><code>git add [file1] [file2] ...</code></p>
-<ul>
-<li>添加指定目录到暂存区：</li>
-</ul>
-<p><code>git add [dir]...</code></p>
-<ul>
-<li>添加所有文件：</li>
-</ul>
-<p><code>git add .</code></p>
-<p>注意add后的空格！</p>
-<h1 id="git-commit"><a href="#git-commit" class="headerlink" title="git commit"></a>git commit</h1><ul>
-<li>将暂存区内容添加到本地仓库中</li>
-</ul>
-<p><code>git commit -m [message]</code></p>
-<p>其中<code>[message]</code>是添加时的备注信息，用<code>&#39;xxx&#39;</code>表示</p>
-<ul>
-<li>提交指定文件</li>
-</ul>
-<p><code>git commit [file1] [file2] ... -m [message]</code></p>
-<ul>
-<li><strong>-a</strong> 参数设置修改文件后不需要执行 git add 命令，直接来提交</li>
-</ul>
-<p><code>git commit -a</code></p>
-<h1 id="git-status"><a href="#git-status" class="headerlink" title="git status"></a>git status</h1><p>用于查看在上次提交后是否对文件再次修改</p>
-<h1 id="git-remote"><a href="#git-remote" class="headerlink" title="git remote"></a>git remote</h1><p>用于在远程仓库的操作。</p>
-<ul>
-<li>显示所有远程仓库：</li>
-</ul>
-<p><code>git remote -v</code></p>
-<p>注意cd到项目目录</p>
-<ul>
-<li>显示某个远程仓库的信息：</li>
-</ul>
-<p><code>git remote show [remote]</code></p>
-<p>其中<code>[remote]</code>是git远程仓库地址</p>
-<ul>
-<li>添加远程版本库：</li>
-</ul>
-<p><code>git remote add [shortname] [url]</code></p>
-<p><code>[shortname] </code>为本地的版本库</p>
-<ul>
-<li>其他相关命令：</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote rm name  #删除远程仓库</span><br><span class="line">git remote rename old_name new_name  #修改仓库名</span><br></pre></td></tr></table></figure>
-
-<h1 id="git-push"><a href="#git-push" class="headerlink" title="git push"></a>git push</h1><p><strong>git push</strong> 命令用于从将本地的分支版本上传到远程并合并。 </p>
-<ul>
-<li>命令格式如下：</li>
-</ul>
-<p><code>git push &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;</code></p>
-<ul>
-<li>如果本地分支名与远程分支名相同，则可以省略冒号：</li>
-</ul>
-<p><code>git push &lt;远程主机名&gt; &lt;本地分支名&gt;</code></p>
-<h1 id="git-fetch"><a href="#git-fetch" class="headerlink" title="git fetch"></a>git fetch</h1><p><strong>git fetch</strong> 命令用于从远程获取代码库。 </p>
-<p>该命令执行完后需要执行 git merge 远程分支到你所在的分支。</p>
-<p>从远端仓库提取数据并尝试合并到当前分支：</p>
-<p><code>git merge</code></p>
-<p>该命令就是在执行 git fetch 之后紧接着执行 git merge 远程分支到你所在的任意分支。</p>
-<p>假设你配置好了一个远程仓库，并且你想要提取更新的数据，你可以首先执行:</p>
-<p><code>git fetch [alias]</code></p>
-<p>以上命令告诉 Git 去获取它有你没有的数据，然后你可以执行：</p>
-<p><code>git merge [alias]/[branch]</code></p>
-<p>以上命令将服务器上的任何更新（假设有人这时候推送到服务器了）合并到你的当前分支。</p>
-<h1 id="git-pull"><a href="#git-pull" class="headerlink" title="git pull"></a>git pull</h1><p><strong>git pull</strong> 命令用于从远程获取代码并合并本地的版本。 </p>
-<p><strong>git pull</strong> 其实就是 git fetch 和 git merge FETCH_HEAD 的简写。</p>
-<p>命令格式如下：</p>
-<p><code>git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</code></p>
-<h1 id="push-流程"><a href="#push-流程" class="headerlink" title="push 流程"></a>push 流程</h1><ol>
-<li>创建仓库 <code>git init</code></li>
-<li><code>git clone [url]</code></li>
-<li><code>git add .</code></li>
-<li><code>git commit</code></li>
-<li><code>git push origin [branch]:[branch]</code></li>
-</ol>
-
+        
+          <a class="article-more-a" href="/2022/09/22/hello-world/#more">more >></a>
+        
       
 
       
