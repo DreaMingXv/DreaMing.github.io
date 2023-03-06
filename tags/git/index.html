@@ -6,22 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>git 使用记录 | Hexo</title>
+  <title>Tag: git | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="git 结构  workspace：工作区，就是你在电脑里能看到的目录。 staging area：暂存区&#x2F;缓存区，一般存放在  .git 目录下的 index 文件（.git&#x2F;index）中，所以我们把暂存区有时也叫作索引（index）。 local repository：版本库或本地仓库，工作区有一个隐藏目录 .git，这个不算工作区，而是 Git 的版本库。 remote">
-<meta property="og:type" content="article">
-<meta property="og:title" content="git 使用记录">
-<meta property="og:url" content="http://example.com/2023/03/05/hello-world/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/tags/git/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="git 结构  workspace：工作区，就是你在电脑里能看到的目录。 staging area：暂存区&#x2F;缓存区，一般存放在  .git 目录下的 index 文件（.git&#x2F;index）中，所以我们把暂存区有时也叫作索引（index）。 local repository：版本库或本地仓库，工作区有一个隐藏目录 .git，这个不算工作区，而是 Git 的版本库。 remote">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="d:\blog\source\images\git_1.png">
-<meta property="article:published_time" content="2023-03-05T12:23:24.412Z">
-<meta property="article:modified_time" content="2023-03-06T01:37:03.616Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="git">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="d:\blog\source\images\git_1.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -157,146 +150,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-world" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      git 使用记录
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2023" class="archive-year">2023</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2023/03/05/hello-world/" class="archive-article-date">
+  	<time datetime="2023-03-05T12:23:24.412Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-05</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2023/03/05/hello-world/">git 使用记录</a>
     </h1>
   
 
-        
-        <a href="/2023/03/05/hello-world/" class="archive-article-date">
-  	<time datetime="2023-03-05T12:23:24.412Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="git-结构"><a href="#git-结构" class="headerlink" title="git 结构"></a>git 结构</h1><p><img src="D:\blog\source\images\git_1.png" alt="git_1.png"></p>
-<ul>
-<li>workspace：工作区，就是你在电脑里能看到的目录。</li>
-<li>staging area：暂存区&#x2F;缓存区，一般存放在  .git 目录下的 index 文件（.git&#x2F;index）中，所以我们把暂存区有时也叫作索引（index）。</li>
-<li>local repository：版本库或本地仓库，工作区有一个隐藏目录 .git，这个不算工作区，而是 Git 的版本库。</li>
-<li>remote repository：远程仓库</li>
-</ul>
-<h1 id="git-init"><a href="#git-init" class="headerlink" title="git init"></a>git init</h1><p>在目录中创建仓库</p>
-<h1 id="git-clone"><a href="#git-clone" class="headerlink" title="git clone"></a>git clone</h1><ul>
-<li>拷贝远程仓库中的项目</li>
-</ul>
-<p><code>git clone [url] </code></p>
-<p>其中<code>[url]</code>是要拷贝的项目地址，用http</p>
-<h1 id="git-add"><a href="#git-add" class="headerlink" title="git add"></a>git add</h1><ul>
-<li>添加一个或多个文件到暂存区：</li>
-</ul>
-<p><code>git add [file1] [file2] ...</code></p>
-<ul>
-<li>添加指定目录到暂存区：</li>
-</ul>
-<p><code>git add [dir]...</code></p>
-<ul>
-<li>添加所有文件：</li>
-</ul>
-<p><code>git add .</code></p>
-<p>注意add后的空格！</p>
-<h1 id="git-commit"><a href="#git-commit" class="headerlink" title="git commit"></a>git commit</h1><ul>
-<li>将暂存区内容添加到本地仓库中</li>
-</ul>
-<p><code>git commit -m [message]</code></p>
-<p>其中<code>[message]</code>是添加时的备注信息，用<code>&#39;xxx&#39;</code>表示</p>
-<ul>
-<li>提交指定文件</li>
-</ul>
-<p><code>git commit [file1] [file2] ... -m [message]</code></p>
-<ul>
-<li><strong>-a</strong> 参数设置修改文件后不需要执行 git add 命令，直接来提交</li>
-</ul>
-<p><code>git commit -a</code></p>
-<h1 id="git-status"><a href="#git-status" class="headerlink" title="git status"></a>git status</h1><p>用于查看在上次提交后是否对文件再次修改</p>
-<h1 id="git-remote"><a href="#git-remote" class="headerlink" title="git remote"></a>git remote</h1><p>用于在远程仓库的操作。</p>
-<ul>
-<li>显示所有远程仓库：</li>
-</ul>
-<p><code>git remote -v</code></p>
-<p>注意cd到项目目录</p>
-<ul>
-<li>显示某个远程仓库的信息：</li>
-</ul>
-<p><code>git remote show [remote]</code></p>
-<p>其中<code>[remote]</code>是git远程仓库地址</p>
-<ul>
-<li>添加远程版本库：</li>
-</ul>
-<p><code>git remote add [shortname] [url]</code></p>
-<p><code>[shortname] </code>为本地的版本库</p>
-<ul>
-<li>其他相关命令：</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote rm name  # 删除远程仓库</span><br><span class="line">git remote rename old_name new_name  # 修改仓库名</span><br></pre></td></tr></table></figure>
-
-<h1 id="git-push"><a href="#git-push" class="headerlink" title="git push"></a>git push</h1><p><strong>git push</strong> 命令用于从将本地的分支版本上传到远程并合并。 </p>
-<ul>
-<li>命令格式如下：</li>
-</ul>
-<p><code>git push &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;</code></p>
-<ul>
-<li>如果本地分支名与远程分支名相同，则可以省略冒号：</li>
-</ul>
-<p><code>git push &lt;远程主机名&gt; &lt;本地分支名&gt;</code></p>
-<h1 id="git-fetch"><a href="#git-fetch" class="headerlink" title="git fetch"></a>git fetch</h1><p><strong>git fetch</strong> 命令用于从远程获取代码库。 </p>
-<p>该命令执行完后需要执行 git merge 远程分支到你所在的分支。</p>
-<p>从远端仓库提取数据并尝试合并到当前分支：</p>
-<p><code>git merge</code></p>
-<p>该命令就是在执行 git fetch 之后紧接着执行 git merge 远程分支到你所在的任意分支。</p>
-<p>假设你配置好了一个远程仓库，并且你想要提取更新的数据，你可以首先执行:</p>
-<p><code>git fetch [alias]</code></p>
-<p>以上命令告诉 Git 去获取它有你没有的数据，然后你可以执行：</p>
-<p><code>git merge [alias]/[branch]</code></p>
-<p>以上命令将服务器上的任何更新（假设有人这时候推送到服务器了）合并到你的当前分支。</p>
-<h1 id="git-pull"><a href="#git-pull" class="headerlink" title="git pull"></a>git pull</h1><p><strong>git pull</strong> 命令用于从远程获取代码并合并本地的版本。 </p>
-<p><strong>git pull</strong> 其实就是 git fetch 和 git merge FETCH_HEAD 的简写。</p>
-<p>命令格式如下：</p>
-<p><code>git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</code></p>
-<h1 id="push-流程"><a href="#push-流程" class="headerlink" title="push 流程"></a>push 流程</h1><ol>
-<li>创建仓库 <code>git init</code></li>
-<li><code>git clone [url]</code></li>
-<li><code>git add .</code></li>
-<li><code>git commit</code></li>
-<li><code>git push origin [branch]:[branch]</code></li>
-</ol>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -308,96 +191,19 @@
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2023/03/05/hello-world/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
   
   
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -420,9 +226,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
